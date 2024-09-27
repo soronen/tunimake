@@ -1,0 +1,10 @@
+
+K g++
+F -pthread
+C saikeet.cc
+H saikeet.hh
+L pthread
+E saietesti
+#
+# command that will be run:
+# g++ -pthread saikeita.cc -pthread -o saietesti
