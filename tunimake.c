@@ -13,8 +13,7 @@
 #include <sys/wait.h>
 #include <ctype.h>
 
-
-#define MAX_LINE_LENGTH 256  // line in the makefile, or any filename
+#define MAX_LINE_LENGTH 256 // line in the makefile, or any filename
 #define MAX_FILES 64
 
 char compiler[MAX_LINE_LENGTH];
@@ -30,7 +29,6 @@ int num_libraries = 0;
 
 /*
  * Take in a string ptr and modify it to remove leading and trailing whitespace characters.
- * source: https://stackoverflow.com/questions/122616/how-do-i-trim-leading-trailing-whitespace-in-a-standard-way
  */
 char *trim_whitespace(char *str)
 {
@@ -215,11 +213,11 @@ void compile_source_file(const char *source_file)
 
 /*
  * Link the object files into an executable.
- Linking is done by forking a child process and executing the compiler with the appropriate flags.
+ Linking is done by a forked child process and which executes the compiler with the appropriate flags while the parent process waits.
  */
 void link_object_files()
 {
-    // The maximum number of arguments is the number of source files + 5 (compiler, flags, -o, executable, NULL)
+    // The maximum number of arguments is the number of source files + 5 (compiler, flags, -o, executable, and NULL terminator)
     char *args[MAX_FILES + 5];
     int arg_index = 0;
 
