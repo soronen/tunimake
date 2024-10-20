@@ -13,8 +13,8 @@
 #include <sys/wait.h>
 #include <ctype.h>
 
-// it also determines the max length of some filenames confusingly
-#define MAX_LINE_LENGTH 256
+
+#define MAX_LINE_LENGTH 256  // line in the makefile, or any filename
 #define MAX_FILES 64
 
 char compiler[MAX_LINE_LENGTH];
